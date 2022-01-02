@@ -1,0 +1,32 @@
+let idOnN = Pi 1 1  
+let sucOfthird =  C (S, (Pi 3 1))  
+let plus = P (idOnN, sucOfthird) 
+
+let hmul = C (plus, (Pi 3 1, Pi 3 3))
+let mul = P (Z 1, hmul)
+
+
+-- just a comment
+let gdec = Z 0
+let hdec = Pi 2 2 
+let dec = P (gdec, hdec)
+
+
+
+
+let gminus = Pi 1 1
+let hminus = C (dec, (Pi 3 1))
+let minus = P (gminus, hminus)
+
+
+
+
+
+let swappedminus = C (minus, (Pi 2 2, Pi 2 1))
+
+
+let gfac = C (S, (Z 0 ))
+lethfac = C (mul, (Pi 2 1, C (S, (Pi 2 2))) )
+let fac = P (gfac,hfac)
+
+fac (5)
