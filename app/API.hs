@@ -13,6 +13,8 @@ import           BetterInterpreter
 import           Control.Monad.State.Strict     ( MonadIO(liftIO)
                                                 , join
                                                 )
+import System.Environment
+import Control.Monad
 
 newtype Res = Res (Either [Char] [Int])
     deriving (Eq,Show, Generic)
@@ -33,7 +35,15 @@ serverhelper = post "/runPreks" $ do
     json $ parseInterpret content
 
 
+
+--port <- liftM read $ getEnv "PORT"
+-- server :: IO ()
+-- server = scotty 3000 $ do
+--     middleware corsHelper
+--     serverhelper
+
 server :: IO ()
-server = scotty 3000 $ do
-    middleware corsHelper
-    serverhelper
+server = do port <- liftM read $ getEnv "PORT"
+            scotty port $ do
+                middleware corsHelper
+                serverhelper

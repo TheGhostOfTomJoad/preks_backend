@@ -80,15 +80,15 @@
   (major1) == 0 && (major2) <  12 || \
   (major1) == 0 && (major2) == 12 && (minor) <= 0)
 #endif /* MIN_VERSION_scotty */
-/* package unordered-containers-0.2.14.0 */
+/* package unordered-containers-0.2.16.0 */
 #ifndef VERSION_unordered_containers
-#define VERSION_unordered_containers "0.2.14.0"
+#define VERSION_unordered_containers "0.2.16.0"
 #endif /* VERSION_unordered_containers */
 #ifndef MIN_VERSION_unordered_containers
 #define MIN_VERSION_unordered_containers(major1,major2,minor) (\
   (major1) <  0 || \
   (major1) == 0 && (major2) <  2 || \
-  (major1) == 0 && (major2) == 2 && (minor) <= 14)
+  (major1) == 0 && (major2) == 2 && (minor) <= 16)
 #endif /* MIN_VERSION_unordered_containers */
 /* package wai-cors-0.2.7 */
 #ifndef VERSION_wai_cors
