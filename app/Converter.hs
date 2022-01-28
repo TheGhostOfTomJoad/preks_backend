@@ -29,7 +29,6 @@ congSuc :: (n :~: m) -> (Suc n :~: Suc m)
 congSuc Refl = Refl
 
 instance TestEquality Natty where
-
     testEquality Zy     Zy     = Just Refl
     testEquality (Sy n) (Sy m) = fmap congSuc (testEquality n m)  -- check whether the predecessors are equal, then make use of congruence
     testEquality Zy     _      = Nothing
