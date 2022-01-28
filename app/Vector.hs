@@ -2,7 +2,6 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
---{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE StandaloneDeriving #-}
 
 module Vector
@@ -15,13 +14,8 @@ module Vector
   , Natty(..)
   ) where
 
---{-# LANGUAGE TypeOperators #-}
---{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
---{-# OPTIONS_GHC -Wno-inaccessible-code #-}
---{-# OPTIONS_GHC -Wno-deferred-type-errors #-}
 import           Data.Foldable
 
---import qualified Data.Vector.Fixed.Unboxed as V
 data Nat = Zero | Suc Nat
   deriving (Show, Eq)
 
@@ -42,6 +36,47 @@ deriving instance (Show a) => Show (Vec n a)
 VCons x _  ! FZero  = x
 VCons _ xs ! FSuc n = xs ! n
 
+mapV :: (a -> b) -> Vec n a -> Vec n b
+mapV _ VNil         = VNil
+mapV f (VCons x xs) = VCons (f x) (mapV f xs)
+
+instance Functor (Vec n) where
+  fmap = mapV
+
+data Natty (n :: Nat) where
+  Zy ::Natty Zero -- pronounced 'zed-y'
+  Sy ::Natty n -> Natty (Suc n) -- pronounced 'ess-y'
+
+deriving instance Show (Natty n)
+
+data AVec a = forall n . AVec (Natty n) (Vec n a)
+
+deriving instance (Show a) => Show (AVec a)
+
+fromList :: [a] -> AVec a
+fromList = foldr cons nil
+ where
+  cons x (AVec n xs) = AVec (Sy n) (VCons x xs)
+  nil = AVec Zy VNil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- foldrV :: (a -> b -> b) -> b -> Vec n a -> b
 -- foldrV _ acc VNil         = acc
 -- foldrV f acc (VCons x xs) = f x (foldrV f acc xs)
@@ -49,12 +84,6 @@ VCons _ xs ! FSuc n = xs ! n
 -- instance Foldable (Vec n) where
 --   foldr = foldrV
 
-mapV :: (a -> b) -> Vec n a -> Vec n b
-mapV _ VNil         = VNil
-mapV f (VCons x xs) = VCons (f x) (mapV f xs)
-
-instance Functor (Vec n) where
-  fmap = mapV
 
 -- lastV :: Vec (Suc n) a -> a
 -- lastV (VCons x VNil) = x
@@ -90,18 +119,3 @@ instance Functor (Vec n) where
 
 
 --- source: https://softwareengineering.stackexchange.com/questions/276867/is-it-possible-to-bake-dimension-into-a-type-in-haskell
-data Natty (n :: Nat) where
-  Zy ::Natty Zero -- pronounced 'zed-y'
-  Sy ::Natty n -> Natty (Suc n) -- pronounced 'ess-y'
-
-deriving instance Show (Natty n)
-
-data AVec a = forall n . AVec (Natty n) (Vec n a)
-
-deriving instance (Show a) => Show (AVec a)
-
-fromList :: [a] -> AVec a
-fromList = Prelude.foldr cons nil
- where
-  cons x (AVec n xs) = AVec (Sy n) (VCons x xs)
-  nil = AVec Zy VNil
