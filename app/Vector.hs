@@ -42,12 +42,12 @@ deriving instance (Show a) => Show (Vec n a)
 VCons x _  ! FZero  = x
 VCons _ xs ! FSuc n = xs ! n
 
-foldrV :: (a -> b -> b) -> b -> Vec n a -> b
-foldrV _ acc VNil         = acc
-foldrV f acc (VCons x xs) = f x (foldrV f acc xs)
+-- foldrV :: (a -> b -> b) -> b -> Vec n a -> b
+-- foldrV _ acc VNil         = acc
+-- foldrV f acc (VCons x xs) = f x (foldrV f acc xs)
 
-instance Foldable (Vec n) where
-  foldr = foldrV
+-- instance Foldable (Vec n) where
+--   foldr = foldrV
 
 mapV :: (a -> b) -> Vec n a -> Vec n b
 mapV _ VNil         = VNil
@@ -78,15 +78,15 @@ instance Functor (Vec n) where
 -- append2V VNil a b = a `VCons` (b `VCons` VNil)
 -- append2V (VCons x xs) a b = VCons x (append2V xs a b)
 
-sequenceV :: Applicative m => Vec n (m a) -> m (Vec n a)
-sequenceV VNil         = pure VNil
-sequenceV (VCons x xs) = VCons <$> x <*> sequenceV xs
+-- sequenceV :: Applicative m => Vec n (m a) -> m (Vec n a)
+-- sequenceV VNil         = pure VNil
+-- sequenceV (VCons x xs) = VCons <$> x <*> sequenceV xs
 
--- singleton :: a -> Vec (Suc Zero) a
--- singleton a = VCons a VNil
+-- -- singleton :: a -> Vec (Suc Zero) a
+-- -- singleton a = VCons a VNil
 
-instance Traversable (Vec n) where
-  sequenceA = sequenceV
+-- instance Traversable (Vec n) where
+--   sequenceA = sequenceV
 
 
 --- source: https://softwareengineering.stackexchange.com/questions/276867/is-it-possible-to-bake-dimension-into-a-type-in-haskell
