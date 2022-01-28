@@ -6,7 +6,7 @@ import           Vector
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE FlexibleContexts, GADTs, DataKinds, KindSignatures #-}
 
-{-# LANGUAGE StandaloneDeriving #-}
+
 
 type Ident = String
 

@@ -43,7 +43,7 @@ serverhelper = post "/runPreks" $ do
 --     serverhelper
 
 server :: IO ()
-server = do port <- liftM read $ getEnv "PORT"
+server = do port <- read <$> getEnv "PORT"
             scotty port $ do
                 middleware corsHelper
                 serverhelper
