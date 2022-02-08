@@ -89,6 +89,9 @@ Da Listen auf die selbe Weise übersetzt werden können, ist eine anschließende
 evalSafe :: CheckedPrek n -> Vec n Int -> Int
 ```
 
+Das Projekt kann hier ausprobiert werden:
+https://theghostoftomjoad.github.io/preks_frontend/
+
 
 Die Idee natürliche Zahlen auf Typebene zur Kodierung zu verwenden stammt aus idesem Post: 
 https://softwareengineering.stackexchange.com/questions/276867/is-it-possible-to-bake-dimension-into-a-type-in-haskell.
