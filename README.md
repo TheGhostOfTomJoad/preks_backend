@@ -1,4 +1,4 @@
-# Parser und Interpreter für primitiv rekursives Funktionen mit GADTs in Haskell
+# Parser und Interpreter für primitiv rekursive Funktionen mit GADTs in Haskell
 
 
 
