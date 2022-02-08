@@ -4,7 +4,7 @@
 
 In diesem Repository befindet sich der Code für mein Masterprojekt. Mit dem vorliegenden Programm werden primitv rekursive Funktionen (siehe Dokumentation: https://github.com/TheGhostOfTomJoad/preks_backend/blob/main/documentation.pdf) geparst, überprüft und ausgewertet.
 
-Das vorliegende Programm parst eingegebenen Code und gibt ein Element mit dem folgenden Typ zurück:
+Das Programm parst zuerst eingegebenen Code und gibt ein Element mit dem folgenden Typ zurück:
 
 ```haskell
 data ParsedPrek
@@ -34,7 +34,7 @@ In diesem Datentyp können auch invalide Ausdrücke wie
 PrekC (ConstZero 0) (ConstZero 0)
 ```
 
-dargestellt werden. Anschließend wird  versucht diese Ausdrücke zu Ausdrücken vom folgenden Typ zu konvertieren.
+dargestellt werden. Anschließend wird  versucht diese Ausdrücke zu Ausdrücken vom folgenden Typ zu konvertieren, in dem sich nur valide primitiv rekursive Funktionen darstellen lassen.
 ```haskell
 data CheckedPrek :: Nat -> * where
   CSucc      ::CheckedPrek (Suc Zero)
@@ -90,7 +90,8 @@ evalSafe :: CheckedPrek n -> Vec n Int -> Int
 ```
 
 
-Die Idee natürliche Zahlen auf Typebene zur Kodierung zu verwenden stammt aus idesem Post: The Idea ist taken from https://softwareengineering.stackexchange.com/questions/276867/is-it-possible-to-bake-dimension-into-a-type-in-haskell.
+Die Idee natürliche Zahlen auf Typebene zur Kodierung zu verwenden stammt aus idesem Post: 
+https://softwareengineering.stackexchange.com/questions/276867/is-it-possible-to-bake-dimension-into-a-type-in-haskell.
 
 
 
