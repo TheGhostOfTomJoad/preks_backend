@@ -83,7 +83,7 @@ prekChelper _ _ = throwError
 ```
 Hierbei wird das Paket `Data.Type.Equality` genutzt.
 
-Da Listen auf die selbe Weise übersetzt werden können, ist eine anschließende Auswertung mit der folgenden Funktion möglich.
+Da Listen auf die selbe Weise übersetzt werden können, ist eine anschließende Auswertung mit der folgenden Funktion möglich:
 
 ```haskell
 evalSafe :: CheckedPrek n -> Vec n Int -> Int
