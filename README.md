@@ -90,7 +90,7 @@ evalSafe :: CheckedPrek n -> Vec n Int -> Int
 ```
 
 Das Projekt kann hier ausprobiert werden:
-https://theghostoftomjoad.github.io/preks_frontend/
+https://theghostoftomjoad.github.io/preks_frontend/.
 
 
 Die Idee natürliche Zahlen auf Typebene zur Kodierung zu verwenden stammt aus idesem Post: 
