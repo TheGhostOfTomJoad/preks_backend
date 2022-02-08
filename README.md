@@ -2,7 +2,7 @@
 
 
 
-In diesem Repository befindet sich der Code für mein Masterprojekt. Mit dem vorliegenden Programm werden primitv rekursive Funktionen geparst, überprüft und ausgewertet.
+In diesem Repository befindet sich der Code für mein Masterprojekt. Mit dem vorliegenden Programm werden primitv rekursive Funktionen (siehe Dokumentation: https://github.com/TheGhostOfTomJoad/preks_backend/blob/main/documentation.pdf) geparst, überprüft und ausgewertet.
 
 Das vorliegende Programm parst eingegebenen Code und gibt ein Element mit dem folgenden Typ zurück:
 
