@@ -46,7 +46,7 @@ data CheckedPrek :: Nat -> * where
 deriving instance Show (CheckedPrek n)
 ```
 
-Dies ist einerseits nicht immer möglich ist und andererseits ist die Stelligkeit der geparsten primitiv rekursiven Funktion vorher nicht bekannt.
+Dies ist einerseits nicht immer möglich und andererseits ist die Stelligkeit der geparsten primitiv rekursiven Funktion vorher nicht bekannt.
 Deshalb hat die Funktion, mit der die Übersetzung durchgeführt wird, den folgenden Typ:
 ```haskell
 
