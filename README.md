@@ -20,7 +20,7 @@ data PrekOrId = Pr ParsedPrek | Pid Ident
     deriving (Show ,Eq)
 ```
 
-Anschließend werden die Variablennamen durch bereits definierte primitiv rekursive Funktionen ersetzt. Fehler können  hier nur autreten, wenn undefinierte Variablen verwendet werden
+Anschließend werden die Variablennamen durch bereits definierte primitiv rekursive Funktionen ersetzt. Fehler können  hier nur autreten, wenn undefinierte Variablen verwendet werden.
 Das Resultat hat den Typ:
 
 ```haskell
